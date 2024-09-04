@@ -6,6 +6,9 @@
 const char* ssid = "";
 const char* password = "";
 const char* BROKER_MQTT = "";
+const char* BROKER_CLIENT = "";
+const char* BROKER_USER = "";
+const char* BROKER_PASS = "";
 int BROKER_PORT = 1883;
 
 #define POWER_PIN  D7
@@ -66,7 +69,7 @@ void loop() {
       finalValue = (finalValue + value) / 2;
   }
 
-  if (MQTT.connect("hidrafelis_client")) {
+  if (MQTT.connect(BROKER_CLIENT, BROKER_USER, BROKER_PASS)) {
       Serial.print("Sensor value: ");
       Serial.println(finalValue);
 
